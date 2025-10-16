@@ -284,6 +284,7 @@ public class BarangForm extends javax.swing.JFrame {
     private void btnLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanActionPerformed
         ReportGenerator.generateBarangReport();
         JOptionPane.showMessageDialog(this, "Laporan berhasil dibuat (LaporanBarang.txt)");
+        new LaporanFrame().setVisible(true);
     }//GEN-LAST:event_btnLaporanActionPerformed
 
     /**
