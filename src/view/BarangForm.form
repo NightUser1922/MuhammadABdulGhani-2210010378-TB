@@ -243,6 +243,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Tambah"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTambahActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnUbah">
           <Properties>
@@ -251,6 +254,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ubah"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUbahActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnHapus">
           <Properties>
@@ -259,6 +265,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Hapus"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHapusActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRefresh">
           <Properties>
@@ -275,6 +284,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Laporan"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaporanActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

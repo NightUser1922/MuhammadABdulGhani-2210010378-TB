@@ -97,18 +97,38 @@ public class BarangForm extends javax.swing.JFrame {
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
 
         btnUbah.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnUbah.setText("Ubah");
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbahActionPerformed(evt);
+            }
+        });
 
         btnHapus.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnRefresh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnRefresh.setText("Refresh");
 
         btnLaporan.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnLaporan.setText("Laporan");
+        btnLaporan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaporanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,6 +244,47 @@ public class BarangForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        Barang b = new Barang();
+        b.setNama_barang(txtNama.getText());
+        b.setStok(Integer.parseInt(txtStok.getText()));
+        b.setHarga(Double.parseDouble(txtHarga.getText()));
+        b.setId_kategori(cmbKategori.getSelectedIndex() + 1);
+        controller.insert(b);
+        tampilkanData();
+        bersihkan();
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        int row = tblBarang.getSelectedRow();
+        if (row >= 0) {
+            int id = (int) tblBarang.getValueAt(row, 0);
+            Barang b = new Barang();
+            b.setId_barang(id);
+            b.setNama_barang(txtNama.getText());
+            b.setStok(Integer.parseInt(txtStok.getText()));
+            b.setHarga(Double.parseDouble(txtHarga.getText()));
+            b.setId_kategori(cmbKategori.getSelectedIndex() + 1);
+            controller.update(b);
+            tampilkanData();
+            bersihkan();
+        }
+    }//GEN-LAST:event_btnUbahActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        int row = tblBarang.getSelectedRow();
+        if (row >= 0) {
+            int id = (int) tblBarang.getValueAt(row, 0);
+            controller.delete(id);
+            tampilkanData();
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanActionPerformed
+        ReportGenerator.generateBarangReport();
+        JOptionPane.showMessageDialog(this, "Laporan berhasil dibuat (LaporanBarang.txt)");
+    }//GEN-LAST:event_btnLaporanActionPerformed
 
     /**
      * @param args the command line arguments
