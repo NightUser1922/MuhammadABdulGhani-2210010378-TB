@@ -8,9 +8,6 @@ import utils.ReportGenerator;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
 
 public class BarangForm extends javax.swing.JFrame {
     BarangController controller = new BarangController();
@@ -21,18 +18,23 @@ public class BarangForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         tampilkanData();
     }
-   private void tampilkanData() {
-        String[] kolom = {"ID", "Nama", "Stok", "Harga", "Kategori"};
-        model = new DefaultTableModel(kolom, 0);
-        ArrayList<Barang> list = controller.getAllBarang();
-        for (Barang b : list) {
-            Object[] data = {
-                b.getId_barang(), b.getNama_barang(), b.getStok(), b.getHarga(), b.getId_kategori()
-            };
-            model.addRow(data);
-        }
-        tblBarang.setModel(model);
+    
+    private void tampilkanData() {
+    String[] kolom = {"ID", "Nama Barang", "Stok", "Harga", "Kategori"};
+    model = new DefaultTableModel(kolom, 0);
+    ArrayList<Barang> list = controller.getAllBarang();
+    for (Barang b : list) {
+        Object[] data = {
+            b.getId_barang(),
+            b.getNama_barang(),
+            b.getStok(),
+            b.getHarga(),
+            b.getId_kategori()  // bisa diganti nama_kategori jika pakai JOIN
+        };
+        model.addRow(data);
     }
+    tblBarang.setModel(model);
+}
 
     private void bersihkan() {
         txtNama.setText("");
@@ -98,6 +100,8 @@ public class BarangForm extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel9.setText(":");
+
+        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elektronik", "Alat Tulis", "Perabot Kantor", "Komponen Komputer", "Aksesoris" }));
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnTambah.setText("Tambah");
