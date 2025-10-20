@@ -1,4 +1,5 @@
 ===== LAPORAN DATA BARANG =====
-9 - Laptop Vivo - 5 - 8500000.00
-11 - Pensil 2B Faber Castle - 200 - 7500.00
+13 - Laptop Vivo Asus ROG  - 10 - 15700000.00
+14 - Komputer Type-A 221 - 3 - 7500000.00
+15 - Pensil 2B Fabel Castle - 150 - 7500.00
 ===============================

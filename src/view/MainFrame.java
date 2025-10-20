@@ -6,8 +6,7 @@
 package view;
 import javax.swing.*;
 import model.Koneksi;
-import model.Barang;
-import view.BarangForm;
+
 public class MainFrame extends javax.swing.JFrame {
 
     private JLabel lblTitle;
@@ -36,10 +35,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnKeluar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnBarang = new javax.swing.JButton();
-        btnLaporan = new javax.swing.JButton();
-        btnKeluar = new javax.swing.JButton();
+        btnTransaksi = new javax.swing.JButton();
+        btnLaporan1 = new javax.swing.JButton();
         lblStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,6 +67,14 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("2210010378");
 
+        btnKeluar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -86,7 +94,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,6 +112,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnKeluar)
+                .addGap(35, 35, 35))
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -114,19 +128,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnLaporan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnLaporan.setText("Lihat Laporan");
-        btnLaporan.addActionListener(new java.awt.event.ActionListener() {
+        btnTransaksi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnTransaksi.setText("Transaksi");
+        btnTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLaporanActionPerformed(evt);
+                btnTransaksiActionPerformed(evt);
             }
         });
 
-        btnKeluar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnKeluar.setText("Keluar");
-        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+        btnLaporan1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnLaporan1.setText("Lihat Laporan");
+        btnLaporan1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKeluarActionPerformed(evt);
+                btnLaporan1ActionPerformed(evt);
             }
         });
 
@@ -138,20 +152,20 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(258, Short.MAX_VALUE))
+                    .addComponent(btnTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLaporan1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLaporan1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         lblStatus.setText("Status :");
@@ -189,9 +203,9 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanActionPerformed
-                new LaporanFrame().setVisible(true);
-    }//GEN-LAST:event_btnLaporanActionPerformed
+    private void btnTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaksiActionPerformed
+                new TransaksiForm().setVisible(true);
+    }//GEN-LAST:event_btnTransaksiActionPerformed
 
     private void btnBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarangActionPerformed
                 new BarangForm().setVisible(true);
@@ -209,6 +223,10 @@ public class MainFrame extends javax.swing.JFrame {
                 }
 
     }//GEN-LAST:event_btnKeluarActionPerformed
+
+    private void btnLaporan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporan1ActionPerformed
+                new LaporanFrame().setVisible(true);
+    }//GEN-LAST:event_btnLaporan1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,7 +266,8 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBarang;
     private javax.swing.JButton btnKeluar;
-    private javax.swing.JButton btnLaporan;
+    private javax.swing.JButton btnLaporan1;
+    private javax.swing.JButton btnTransaksi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
