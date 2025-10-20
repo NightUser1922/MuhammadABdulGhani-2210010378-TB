@@ -27,9 +27,15 @@ public class BarangController {
         ArrayList<Barang> list = new ArrayList<>();
         try {
             Connection conn = Koneksi.getConnection();
-            String sql = "SELECT * FROM barang";
+
+            // ✅ Gunakan JOIN agar nama kategori ikut diambil
+            String sql = "SELECT b.*, k.nama_kategori " +
+                         "FROM barang b " +
+                         "JOIN kategori k ON b.id_kategori = k.id_kategori";
+
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
+
             while (rs.next()) {
                 Barang b = new Barang();
                 b.setId_barang(rs.getInt("id_barang"));
@@ -37,6 +43,7 @@ public class BarangController {
                 b.setStok(rs.getInt("stok"));
                 b.setHarga(rs.getDouble("harga"));
                 b.setId_kategori(rs.getInt("id_kategori"));
+                b.setNama_kategori(rs.getString("nama_kategori")); // ✅ ambil nama kategori
                 list.add(b);
             }
         } catch (SQLException e) {

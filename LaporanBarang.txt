@@ -1,3 +1,4 @@
 ===== LAPORAN DATA BARANG =====
-5 - Laptop VIvo - 5 - 8500000.00
+9 - Laptop Vivo - 5 - 8500000.00
+11 - Pensil 2B Faber Castle - 200 - 7500.00
 ===============================

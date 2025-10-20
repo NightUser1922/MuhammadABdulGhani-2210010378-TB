@@ -29,7 +29,7 @@ public class BarangForm extends javax.swing.JFrame {
             b.getNama_barang(),
             b.getStok(),
             b.getHarga(),
-            b.getId_kategori()  // bisa diganti nama_kategori jika pakai JOIN
+            b.getNama_kategori() // bisa diganti nama_kategori jika pakai JOIN
         };
         model.addRow(data);
     }
